@@ -3,11 +3,11 @@ import { Collection } from "./Collection";
 import "./index.scss";
 
 const cats = [
-  { name: "Все" },
-  { name: "Море" },
-  { name: "Горы" },
-  { name: "Архитектура" },
-  { name: "Города" },
+  { name: "All" },
+  { name: "Sea" },
+  { name: "Mountains" },
+  { name: "Architecture" },
+  { name: "Cities" },
 ];
 
 function App() {
@@ -31,14 +31,14 @@ function App() {
       })
       .catch((err) => {
         console.warn(err);
-        alert("Ошибка при получении данных");
+        alert("Error fetching data");
       })
       .finally(() => setIsLoading(false));
   }, [categoryId, page]);
 
   return (
     <div className="App">
-      <h1>Моя коллекция фотографий</h1>
+      <h1>My Photo Collection</h1>
       <div className="top">
         <ul className="tags">
           {cats.map((obj, i) => (
@@ -55,12 +55,12 @@ function App() {
           value={searchValue}
           onChange={(e) => setSearchValue(e.target.value)}
           className="search-input"
-          placeholder="Поиск по названию"
+          placeholder="Search by name"
         />
       </div>
       <div className="content">
         {isLoading ? (
-          <h2>Идёт загрузка...</h2>
+          <h2>Loading...</h2>
         ) : (
           collections
             .filter((obj) =>
